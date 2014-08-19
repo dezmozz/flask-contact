@@ -9,6 +9,8 @@ from logging import Formatter, FileHandler
 from flask import Response as res
 from flask import make_response
 from flask.views import View
+from mods.resp import render_template1
+
 # from forms import *
 # from httplib import HTTPReponse as resp
 #----------------------------------------------------------------------------#
@@ -17,12 +19,14 @@ from flask.views import View
 cwd = os.getcwd()
 
 
-app = Flask(__name__, template_folder="./static/templates",static_url_path="")
+app = Flask(__name__, template_folder="./static/templates", static_url_path="")
 app.config.from_object('config')
 #db = SQLAlchemy(app)
 
-
-
+cwd = os.getcwd()
+temp_dir = cwd + "/static/templates"
+#print temp_dir
+#print os.path.abspath(os.path.join(yourpath, os.pardir))
 
 
 # Automatically tear down SQLAlchemy.
@@ -51,7 +55,7 @@ def login_required(test):
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template1("index.html")
 
 
 if not app.debug:
