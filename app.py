@@ -2,13 +2,12 @@
 # Imports
 #----------------------------------------------------------------------------#
 import os.path
-from flask import Flask, render_template, request
+
+from flask import Flask
+
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
-from flask import Response as res
-from flask import make_response
-from flask.views import View
 from mods.resp import render_template1
 
 # from forms import *
@@ -16,7 +15,6 @@ from mods.resp import render_template1
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
-cwd = os.getcwd()
 
 
 app = Flask(__name__, template_folder="./static/templates", static_url_path="")
